@@ -2,6 +2,7 @@
 
 import { Search } from "lucide-react";
 import { useState, useEffect } from "react";
+import ReactSlider from "react-slider";
 
 interface City {
   name: string;
@@ -11,7 +12,7 @@ export function Filter() {
   const [cities, setCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(1000);
+  const [maxPrice, setMaxPrice] = useState<number>(980000);
 
   useEffect(() => {
     fetch("/api/cities")
@@ -60,6 +61,26 @@ export function Filter() {
           </option>
         ))}
       </select>
+      <div className="w-full">
+        <ReactSlider
+          className="horizontal-slider"
+          thumbClassName="example-thumb"
+          trackClassName="example-track"
+          defaultValue={[minPrice, maxPrice]}
+          ariaLabel={['Lower thumb', 'Upper thumb']}
+          ariaValuetext={state => `Thumb value ${state.valueNow}`}
+          renderThumb={(props) => <div {...props} />}
+          pearling
+          minDistance={10}
+          min={0}
+          max={1000}
+          onChange={handlePriceChange}
+        />
+        <div className="flex justify-between mt-2">
+          <span>{minPrice}€</span>
+          <span>{maxPrice}€</span>
+        </div>
+      </div>
     </div>
   );
 }

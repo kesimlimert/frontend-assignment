@@ -4,6 +4,7 @@ const nextConfig = {
 	images: {
 	  domains: ['iztek-frontend-assignment.vercel.app'],
 	},
+	transpilePackages: ['react-slider'],
   }
   
   module.exports = nextConfig
