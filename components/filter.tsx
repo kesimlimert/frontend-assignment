@@ -3,18 +3,34 @@
 import { Search } from "lucide-react";
 import { useState, useEffect } from "react";
 import ReactSlider from "react-slider";
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface City {
   name: string;
 }
 
-export function Filter() {
+type FilterProps = {
+  searchLocation: string | string[] | undefined;
+}
+
+export function Filter({ searchLocation }: FilterProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [cities, setCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(980000);
-
+  const [searchInput, setSearchInput] = useState<string | string[] | undefined>("");
   useEffect(() => {
+    const locationParam = searchParams.get('location');
+    const cityParam = searchParams.get('city');
+    const minPriceParam = searchParams.get('min-price');
+    const maxPriceParam = searchParams.get('max-price');
+
+    setSearchInput(locationParam || searchLocation || '');
+    setSelectedCity(cityParam || '');
+
     fetch("/api/cities")
       .then((response) => response.json())
       .then((data) => setCities(data));
@@ -29,6 +45,18 @@ export function Filter() {
     setMaxPrice(value[1]);
   };
 
+  const handleSearch = () => {
+    const searchParams = new URLSearchParams();
+    
+    if (searchInput) searchParams.set('location', searchInput.toString().toLowerCase());
+    if (selectedCity) searchParams.set('city', selectedCity.toString());
+    if (minPrice > 0) searchParams.set('min-price', minPrice.toString());
+    if (maxPrice < 980000) searchParams.set('max-price', maxPrice.toString());
+
+    const queryString = searchParams.toString();
+    router.push(`filter/?${queryString}`);
+  };
+
   return (
     <div className="max-w-lg flex flex-col items-center gap-4 mx-auto">
       <div className="w-full">
@@ -38,10 +66,13 @@ export function Filter() {
             name="location"
             placeholder="Search"
             className="w-full pr-3 py-2 rounded-lg border border-darkGray pl-5"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
           <button
             type="submit"
             className="btn-primary flex pl-4 py-4 items-center text-sm"
+            onClick={handleSearch}
           >
             <Search size={16} className="mr-3" />
             Search
@@ -73,7 +104,7 @@ export function Filter() {
           pearling
           minDistance={10}
           min={0}
-          max={1000}
+          max={980000}
           onChange={handlePriceChange}
         />
         <div className="flex justify-between mt-2">

@@ -8,7 +8,7 @@ export async function searchLocation(formData: FormData) {
     const parsedLocation = encodeURIComponent(
       location.toLowerCase().replace(/[, ]+/g, "-").trim()
     );
-    return redirect(`/filter/${parsedLocation}`);
+    return redirect(`/filter?location=${parsedLocation}`);
   } else {
     return redirect("/filter");
   }
