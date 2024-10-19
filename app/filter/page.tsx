@@ -41,8 +41,6 @@ export default async function FilterPage({
     return true;
   });
 
-  console.log(filteredPosts);
-
   return (
     <div className="pt-12">
       <div className="max-w-[1118px] mx-auto px-6 md:px-0">
