@@ -25,8 +25,6 @@ export function Filter({ searchLocation }: FilterProps) {
   useEffect(() => {
     const locationParam = searchParams.get('location');
     const cityParam = searchParams.get('city');
-    const minPriceParam = searchParams.get('min-price');
-    const maxPriceParam = searchParams.get('max-price');
 
     setSearchInput(locationParam || searchLocation || '');
     setSelectedCity(cityParam || '');

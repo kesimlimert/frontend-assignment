@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const response = await fetch('https://iztek-frontend-assignment.vercel.app/api/references.json');
     
