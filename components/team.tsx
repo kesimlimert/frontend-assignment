@@ -8,7 +8,7 @@ interface TeamMember {
 }
 
 export async function Team() {
-  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const NEXT_PUBLIC_API_URL = process.env.VERCEL_URL || 'http://localhost:3000';
   const data = await fetch(`${NEXT_PUBLIC_API_URL}/api/team`);
   const team: TeamMember[] = await data.json();
 
