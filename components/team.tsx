@@ -9,7 +9,7 @@ interface TeamMember {
 
 export async function Team() {
   const baseURL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `http://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
   const data = await fetch(`${baseURL}/api/team`);
   const team: TeamMember[] = await data.json();

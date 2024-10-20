@@ -19,7 +19,7 @@ export default async function FilterPage({
   const maxPrice = searchParams["max-price"];
 
   const baseURL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `http://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
   const data = await fetch(`${baseURL}/api/posts`);
   const posts: Post[] = await data.json();

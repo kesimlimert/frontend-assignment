@@ -2,7 +2,7 @@ import SliderComponent from "./slider";
 
 export async function References() {
   const baseURL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `http://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
   const data = await fetch(`${baseURL}/api/references`);
   const references = await data.json();
