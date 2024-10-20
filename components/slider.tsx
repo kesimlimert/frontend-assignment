@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import Quote from "@/public/quote.svg";
+import Quote from "@/public/Quote.svg";
 
 interface Reference {
   body: string;
