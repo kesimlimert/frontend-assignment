@@ -8,8 +8,8 @@ interface TeamMember {
 }
 
 export async function Team() {
-  const ROOT_URL = process.env.ROOT_URL || 'http://localhost:3000';
-  const data = await fetch(`${ROOT_URL}/api/team`);
+  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const data = await fetch(`${NEXT_PUBLIC_API_URL}/api/team`);
   const team: TeamMember[] = await data.json();
 
   return (

@@ -1,8 +1,8 @@
 import SliderComponent from "./slider";
 
 export async function References() {
-  const ROOT_URL = process.env.ROOT_URL || 'http://localhost:3000';
-  const data = await fetch(`${ROOT_URL}/api/references`);
+  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const data = await fetch(`${NEXT_PUBLIC_API_URL}/api/references`);
   const references = await data.json();
 
   return (

@@ -18,8 +18,8 @@ export default async function FilterPage({
   const minPrice = searchParams["min-price"];
   const maxPrice = searchParams["max-price"];
 
-  const ROOT_URL = process.env.ROOT_URL || 'http://localhost:3000';
-  const data = await fetch(`${ROOT_URL}/api/posts`);
+  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const data = await fetch(`${NEXT_PUBLIC_API_URL}/api/posts`);
   const posts: Post[] = await data.json();
 
   const filteredPosts = posts.filter((post) => {
