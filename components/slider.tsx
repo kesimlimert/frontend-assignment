@@ -47,7 +47,7 @@ export default function SliderComponent({ references }: SliderComponentProps) {
   return (
     <Slider {...settings}>
       {references.map((reference: Reference, index: number) => (
-        <div key={index} className="mt-8 flex">
+        <div key={index} className={`mt-8 flex px-0 lg:px-0 ${index % 4 === 0 || index % 4 === 2 ? 'md:pr-4' : 'md:pl-4'}`}>
           <div className="bg-light max-w-[525px] p-6 pt-8">
             <div className="flex items-start gap-2">
               <Image src={Quote} alt="quote" className="-mt-3" />

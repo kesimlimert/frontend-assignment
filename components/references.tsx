@@ -4,23 +4,6 @@ export async function References() {
   const data = await fetch("http://localhost:3000/api/references");
   const references = await data.json();
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <div className="py-28">
       <div className="max-w-xl">

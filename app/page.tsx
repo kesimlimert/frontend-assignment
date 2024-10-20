@@ -4,7 +4,7 @@ import { References } from "@/components/references";
 
 export default function Home() {
   return (
-    <div className="max-w-[1118px] mx-auto px-6 md:px-0">
+    <div className="max-w-[1118px] mx-auto px-6 md:px-6 lg:px-0">
       <Hero />
       <Team />
       <References />

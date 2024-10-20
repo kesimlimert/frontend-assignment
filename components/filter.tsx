@@ -58,7 +58,7 @@ export function Filter({ searchLocation }: FilterProps) {
   };
 
   return (
-    <div className="max-w-lg flex flex-col items-center gap-4 mx-auto">
+    <div className="max-w-lg px-6 flex flex-col items-center gap-4 mx-auto">
       <div className="w-full">
         <div className="flex flex-grow gap-3">
           <input

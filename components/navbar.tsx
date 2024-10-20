@@ -12,7 +12,7 @@ export function Navbar() {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="relative max-w-[1118px] mx-auto px-6 md:px-0">
+    <div className="relative max-w-[1118px] mx-auto px-6 md:px-6 lg:px-0">
       <div className="flex justify-between items-center py-8">
         <div className="flex items-center">
           <Link href="/">

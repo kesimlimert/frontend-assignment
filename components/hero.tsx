@@ -15,7 +15,7 @@ export function Hero() {
           years.
         </p>
       </div>
-      <div className="absolute -right-14 top-0">
+      <div className="absolute -right-14 top-0 hidden lg:block">
         <Image src={HeroImage} alt="Hero" width={600} height={550} />
       </div>
       <div className="absolute -bottom-[80px] left-0 right-0 z-10">

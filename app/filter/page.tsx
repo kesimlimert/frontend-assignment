@@ -43,7 +43,7 @@ export default async function FilterPage({
 
   return (
     <div className="pt-12">
-      <div className="max-w-[1118px] mx-auto px-6 md:px-0">
+      <div className="max-w-[1118px] mx-auto px-6 md:px-6 lg:px-0">
         <h1 className="text-2xl md:text-md-2xl text-center lg:text-lg-2xl font-bold">
           Search for an offer
         </h1>
@@ -54,7 +54,7 @@ export default async function FilterPage({
       <div className="bg-light py-12 mt-12">
         <Filter searchLocation={location} />
       </div>
-      <div className="max-w-[1118px] mx-auto px-6 md:px-0">
+      <div className="max-w-[1118px] mx-auto px-6 md:px-6 lg:px-0">
         <PostList posts={filteredPosts} />
       </div>
     </div>
