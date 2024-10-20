@@ -1,5 +1,4 @@
 import { Filter } from "@/components/filter";
-import Image from "next/image";
 import { PostList } from "@/components/post-list";
 
 interface Post {

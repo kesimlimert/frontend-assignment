@@ -32,7 +32,7 @@ export function Filter({ searchLocation }: FilterProps) {
     fetch("/api/cities")
       .then((response) => response.json())
       .then((data) => setCities(data));
-  }, []);
+  }, [searchParams, searchLocation]);
 
   const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCity(event.target.value);
