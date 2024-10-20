@@ -8,8 +8,10 @@ interface TeamMember {
 }
 
 export async function Team() {
-  const NEXT_PUBLIC_API_URL = process.env.VERCEL_URL || 'http://localhost:3000';
-  const data = await fetch(`${NEXT_PUBLIC_API_URL}/api/team`);
+  const baseURL = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
+  const data = await fetch(`${baseURL}/api/team`);
   const team: TeamMember[] = await data.json();
 
   return (
